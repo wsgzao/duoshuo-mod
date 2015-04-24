@@ -2,9 +2,9 @@
 span.ua {
     margin: 0 1px!important;
     color: #FFFFFF!important;
-	/*text-transform: Capitalize!important;
-	float: right!important;
-	line-height: 18px!important;*/;
+    /*text-transform: Capitalize!important;
+    float: right!important;
+    line-height: 18px!important;*/;
 }
 
 .ua_other.os_other {
@@ -161,7 +161,6 @@ span.ua {
     padding: 0 5px!important;
 }
 /*UA End*/
-
 /*Head Start*/
 #ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current {
     border: 0px;
