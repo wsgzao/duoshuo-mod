@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Test DUOSHUO</title>
+	<script src="http://zsxsoft.github.io/useragent.js/javascripts/useragent.min.js"></script>
+	<!-- 关于以上组件，即useragent.js，见http://zsxsoft.github.io/useragent.js/ -->
+	<!-- 然后设置duoshuoQuery和加载多说，并设置自定义的getUAString -->
+	<script>
+	var duoshuoQuery = {
+		short_name: 'official',
+		myIds: [1234567],
+		getUAString: function(local) {
+			var userAgent = USERAGENT.analyze(local.agent);
+			return [
+				'<div class="ds-os">',
+				'<img src="http://zsxsoft.github.io/useragent.js/img/16/' + userAgent.platform.dir + '/' + userAgent.platform.image + '.png" alt="' + userAgent.platform.name + '" />',
+				userAgent.platform.full,
+				'</div>' +
+				'<div class="ds-br">',
+				'<img src="http://zsxsoft.github.io/useragent.js/img/16/browser/' + userAgent.browser.image + '.png" alt="' + userAgent.browser.name + '" />',
+				userAgent.browser.full,
+				'</div>',
+				(local.webmaster ? '<div class="ds-webmaster">站长</div>' : '')
+			].join("");
+		},
+	};
+	</script>
+	<script src="../dist/duoshuo-ua-with-css.min.js"></script>
+	<script src="http://static.duoshuo.com/embed.js"></script>
+</head>
+<body>
+	<div class="ds-thread" data-thread-key="5174f0a16a04594d4800590e"></div>
+</body>
+</html>

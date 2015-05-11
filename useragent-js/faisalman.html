@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title>Test DUOSHUO</title>
+		<!-- 先下载并加载faisalman的ua-parser.min.js -->
+		<script src=ua-parser.min.js></script>
+		<!-- 然后设置duoshuoQuery和加载多说，并设置自定义的getUAString -->
+		<script>
+			// 先初始化UAParser
+			var parser=new UAParser();
+			// 准备好生成显示字串的函数
+			parser.getString=function(o,def){
+				var s=o.name;
+				if(s) {
+					if(o.version) s+=' '+o.version;
+				} else s=def||'';
+				return s;
+			};
+			// 然后设置duoshuoQuery
+			var duoshuoQuery={
+				short_name:'official',
+				myIds:[1234567],
+				getUAString:function(local){
+					parser.setUA(local.agent);
+					var result=parser.getResult();
+					return '<div class="ds-os">'+parser.getString(result.os,'山寨操作系统')+'</div>'+
+						'<div class="ds-br">'+parser.getString(result.browser,'山寨浏览器')+'</div>'+
+						(local.webmaster?'<div class=ds-webmaster>站长</div>':'');
+				},
+			};
+		</script>
+		<script src=../dist/duoshuo-ua-with-css.min.js></script>
+		<script src=http://static.duoshuo.com/embed.unstable.js></script>
+	</head>
+	<body>
+		<div class=ds-thread data-thread-key="5174f0a16a04594d4800590e"></div>
+	</body>
+</html>
