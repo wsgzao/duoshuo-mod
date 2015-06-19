@@ -55,6 +55,10 @@ span.this_ua {
     background-color: #7373B9!important;
     border-color: #7373B9!important;
 }
+.this_ua.browser.Safari{
+    background-color: #666666!important;
+    border-color: #666666!important;
+}
 .this_ua.sskadmin {
     background-color: #00a67c!important;
     border-color: #00a67c!important;
